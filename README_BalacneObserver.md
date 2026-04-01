@@ -10,14 +10,14 @@ It supports:
 ## How It Works
 
 The script uses a small ReAct loop:
-1. LLM returns `Thought`, `Action`, and (eventually) `Final Answer`.
-2. Python parses `Action: tool_name[input]`.
+1. LLM returns `Thought`, `Action`, and `Final Answer`.
+2. Python parses `Action: tool_name[input]` - like intent resolution
 3. Matching tool is executed and appended as `Observation`.
 4. Loop repeats until `Final Answer` is produced.
 
 ## Prerequisites
 
-- Python 3.9+
+- Python 3.10+
 - A valid Google API key for Gemini
 
 ## Setup
@@ -35,11 +35,14 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root:
+3. Replace `"PASTE_GOOGLE_API_KEY_HERE"` in in `config.json` with your actual API key from Google:
 
-```env
-GOOGLE_API_KEY=your_api_key_here
-```
+   ```json
+   {
+     "GOOGLE_API_KEY": "PASTE_GOOGLE_API_KEY_HERE"
+   }
+   ```
+
 
 ## Run
 
