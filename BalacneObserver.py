@@ -1,11 +1,21 @@
-import os, random, re
+import os, random, re, json
+from pathlib import Path
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
-# Load env file
-load_dotenv()
 
-# Read key
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+CONFIG_PATH = Path(__file__).with_name("config.json")
+
+if not CONFIG_PATH.exists():
+    raise FileNotFoundError(f"Missing config file: {CONFIG_PATH}")
+
+with CONFIG_PATH.open("r", encoding="utf-8") as f:
+    _config = json.load(f)
+
+# Central place for API keys and app configuration
+GOOGLE_API_KEY = _config.get("GOOGLE_API_KEY", "")
+if not GOOGLE_API_KEY:
+    raise ValueError("GOOGLE_API_KEY is missing in Part1/config.json")
+os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 
 # 1. --- TOOLS ---
