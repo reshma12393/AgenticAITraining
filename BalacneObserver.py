@@ -76,16 +76,6 @@ def run_react_agent(user_input):
             return response  # Fallback if formatting fails
 
 
-# # 4. --- TEST CASES ---
-# print("\n--- TEST 1: Greeting ---")
-# print("RESULT:", run_react_agent("Hi there!"))
-
-# print("\n--- TEST 2: Balance ---")
-# print("RESULT:", run_react_agent("How much money do I have left?"))
-
-# print("\n--- TEST 3: General Query ---")
-# print("RESULT:", run_react_agent("What is the capital of France?"))
-# input("****")
 print("Hello! Ask me anything, or say bye / exit / quit when you're done.")
 while True:
     user_input = input("\nYou: ")

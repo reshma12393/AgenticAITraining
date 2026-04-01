@@ -32,7 +32,7 @@ source .venv/bin/activate
 2. Install dependencies:
 
 ```bash
-pip install -r Part1/requirements.txt
+pip install -r requirements.txt
 ```
 
 3. Create a `.env` file in the project root:
@@ -44,14 +44,12 @@ GOOGLE_API_KEY=your_api_key_here
 ## Run
 
 ```bash
-python3 Part1/BalacneObserver.py
+python3 BalacneObserver.py
 ```
 
 ## Script Flow
 
 When executed, the script:
-- runs 3 sample test queries
-- pauses once at `input("****")`
 - starts an interactive chat loop
 - exits when you type one of:
   - `exit`, `quit`, `q`, `bye`, `goodbye`, `see you`, `see ya`
